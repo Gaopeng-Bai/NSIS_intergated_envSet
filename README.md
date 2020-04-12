@@ -18,4 +18,4 @@ Here give three examples use [nsis](https://nsis.sourceforge.io/Main_Page) to cr
 
 * Then just follow the step to create new file. 
 
-* Finally, file is ready to build for a installer.
+* Finally, a NSIS file is ready to build for your installer.
