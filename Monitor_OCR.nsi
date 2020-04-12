@@ -2,7 +2,7 @@
 
 ; 安装程序初始定义常量
 !define PRODUCT_NAME "MonitorOCR"
-!define PRODUCT_VERSION "1.5"
+!define PRODUCT_VERSION "1.7"
 !define PRODUCT_PUBLISHER "Gaopeng Bai, TUL Uni Due"
 !define PRODUCT_WEB_SITE "http://www.mycompany.com"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\OCR_main.exe"
@@ -241,16 +241,16 @@ Section "Tesseract" SEC04
   SetOverwrite on
   DetailPrint "Installing Tessera-ocr"
 
-  IfFileExists "C:\Program Files (x86)\Tesseract-OCR\dawg2wordlist.exe" found notfound
+  IfFileExists "C:\Program Files\Tesseract-OCR\dawg2wordlist.exe" found notfound
   found:
   MessageBox MB_ICONINFORMATION|MB_OK "Tesseract already installed"
   Goto done
   notfound:
-  File "..\tesseract-ocr-w64-setup-v4.0.0-beta.1.20180414.exe"
-  ExecWait "$INSTDIR\tesseract-ocr-w64-setup-v4.0.0-beta.1.20180414.exe"
+  File "..\tesseract-ocr-w64-setup-v5.0.0-alpha.20200223.exe"
+  ExecWait "$INSTDIR\tesseract-ocr-w64-setup-v5.0.0-alpha.20200223.exe"
   ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "Path"
 
-  WriteRegExpandStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "Path" "$0;C:\Program Files (x86)\Tesseract-OCR"
+  WriteRegExpandStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "Path" "$0;C:\Program Files\Tesseract-OCR"
   ;刷新环境变量
   SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment"
   done:
